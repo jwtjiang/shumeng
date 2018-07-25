@@ -18,9 +18,6 @@ public class exportCsvCon {
     exportCsvService exportcsvservice;
     @RequestMapping("/hello")
     public String name (@RequestParam("id") int id){
-
         return exportcsvservice.name(id);
-
-
     }
 }
