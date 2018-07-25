@@ -18,7 +18,9 @@ public class exportCsvCon {
     exportCsvService exportcsvservice;
     @RequestMapping("/hello")
     public String name (@RequestParam("id") int id){
-        System.out.println(id);
+
         return exportcsvservice.name(id);
+
+
     }
 }
