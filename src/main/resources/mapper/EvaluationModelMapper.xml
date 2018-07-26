@@ -66,20 +66,7 @@
   <sql id="Base_Column_List">
     em_id, em_name
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.po.EvaluationModelExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from evaluation_model
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -113,28 +100,6 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByExampleSelective" parameterType="map">
-    update evaluation_model
-    <set>
-      <if test="record.emId != null">
-        em_id = #{record.emId,jdbcType=INTEGER},
-      </if>
-      <if test="record.emName != null">
-        em_name = #{record.emName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update evaluation_model
-    set em_id = #{record.emId,jdbcType=INTEGER},
-      em_name = #{record.emName,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.EvaluationModel">
     update evaluation_model
     <set>

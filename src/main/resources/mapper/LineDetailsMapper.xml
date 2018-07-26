@@ -87,20 +87,6 @@
     resistance_design_value, stationmap_2, stationmap_1, terrain, voltage, datetime_month, 
     datetime, line_length
   </sql>
-  <select id="selectByExample" parameterType="com.example.model.LineDetailsExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from line_details
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -111,12 +97,7 @@
     delete from line_details
     where line_id = #{lineId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.po.LineDetailsExample">
-    delete from line_details
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
+
   <insert id="insert" parameterType="com.example.demo.po.LineDetails">
     insert into line_details (line_id, line_name, tower_name, 
       tower_id, parentregion, em_id, 
@@ -260,106 +241,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.po.LineDetailsExample" resultType="java.lang.Long">
-    select count(*) from line_details
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update line_details
-    <set>
-      <if test="record.lineId != null">
-        line_id = #{record.lineId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.lineName != null">
-        line_name = #{record.lineName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.towerName != null">
-        tower_name = #{record.towerName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.towerId != null">
-        tower_id = #{record.towerId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.parentregion != null">
-        parentregion = #{record.parentregion,jdbcType=VARCHAR},
-      </if>
-      <if test="record.emId != null">
-        em_id = #{record.emId,jdbcType=INTEGER},
-      </if>
-      <if test="record.preId != null">
-        pre_id = #{record.preId,jdbcType=BIGINT},
-      </if>
-      <if test="record.maintainer != null">
-        maintainer = #{record.maintainer,jdbcType=VARCHAR},
-      </if>
-      <if test="record.insulationCreepDistance != null">
-        insulation_creep_distance = #{record.insulationCreepDistance,jdbcType=INTEGER},
-      </if>
-      <if test="record.insulationTon != null">
-        insulation_ton = #{record.insulationTon,jdbcType=INTEGER},
-      </if>
-      <if test="record.insulationHigh != null">
-        insulation_high = #{record.insulationHigh,jdbcType=INTEGER},
-      </if>
-      <if test="record.insulationBunchNum != null">
-        insulation_bunch_num = #{record.insulationBunchNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.resistanceDesignValue != null">
-        resistance_design_value = #{record.resistanceDesignValue,jdbcType=INTEGER},
-      </if>
-      <if test="record.stationmap2 != null">
-        stationmap_2 = #{record.stationmap2,jdbcType=REAL},
-      </if>
-      <if test="record.stationmap1 != null">
-        stationmap_1 = #{record.stationmap1,jdbcType=REAL},
-      </if>
-      <if test="record.terrain != null">
-        terrain = #{record.terrain,jdbcType=VARCHAR},
-      </if>
-      <if test="record.voltage != null">
-        voltage = #{record.voltage,jdbcType=VARCHAR},
-      </if>
-      <if test="record.datetimeMonth != null">
-        datetime_month = #{record.datetimeMonth,jdbcType=INTEGER},
-      </if>
-      <if test="record.datetime != null">
-        datetime = #{record.datetime,jdbcType=DATE},
-      </if>
-      <if test="record.lineLength != null">
-        line_length = #{record.lineLength,jdbcType=REAL},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update line_details
-    set line_id = #{record.lineId,jdbcType=VARCHAR},
-      line_name = #{record.lineName,jdbcType=VARCHAR},
-      tower_name = #{record.towerName,jdbcType=VARCHAR},
-      tower_id = #{record.towerId,jdbcType=VARCHAR},
-      parentregion = #{record.parentregion,jdbcType=VARCHAR},
-      em_id = #{record.emId,jdbcType=INTEGER},
-      pre_id = #{record.preId,jdbcType=BIGINT},
-      maintainer = #{record.maintainer,jdbcType=VARCHAR},
-      insulation_creep_distance = #{record.insulationCreepDistance,jdbcType=INTEGER},
-      insulation_ton = #{record.insulationTon,jdbcType=INTEGER},
-      insulation_high = #{record.insulationHigh,jdbcType=INTEGER},
-      insulation_bunch_num = #{record.insulationBunchNum,jdbcType=INTEGER},
-      resistance_design_value = #{record.resistanceDesignValue,jdbcType=INTEGER},
-      stationmap_2 = #{record.stationmap2,jdbcType=REAL},
-      stationmap_1 = #{record.stationmap1,jdbcType=REAL},
-      terrain = #{record.terrain,jdbcType=VARCHAR},
-      voltage = #{record.voltage,jdbcType=VARCHAR},
-      datetime_month = #{record.datetimeMonth,jdbcType=INTEGER},
-      datetime = #{record.datetime,jdbcType=DATE},
-      line_length = #{record.lineLength,jdbcType=REAL}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+
+
   <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.LineDetails">
     update line_details
     <set>

@@ -77,20 +77,6 @@
     pre_id, pre_name, pre_create_time, em_id, coincidence_degree, pre_comment, DATE2, 
     DATE1, BZ3, BZ2, BZ1, pre_factor
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.po.PresentationExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from presentation_t
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -100,12 +86,6 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from presentation_t
     where pre_id = #{preId,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.po.PresentationExample">
-    delete from presentation_t
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
   </delete>
   <insert id="insert" parameterType="com.example.demo.po.Presentation">
     insert into presentation_t (pre_id, pre_name, pre_create_time, 
@@ -196,74 +176,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.po.PresentationExample" resultType="java.lang.Long">
-    select count(*) from presentation_t
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update presentation_t
-    <set>
-      <if test="record.preId != null">
-        pre_id = #{record.preId,jdbcType=BIGINT},
-      </if>
-      <if test="record.preName != null">
-        pre_name = #{record.preName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.preCreateTime != null">
-        pre_create_time = #{record.preCreateTime,jdbcType=DATE},
-      </if>
-      <if test="record.emId != null">
-        em_id = #{record.emId,jdbcType=INTEGER},
-      </if>
-      <if test="record.coincidenceDegree != null">
-        coincidence_degree = #{record.coincidenceDegree,jdbcType=VARCHAR},
-      </if>
-      <if test="record.preComment != null">
-        pre_comment = #{record.preComment,jdbcType=VARCHAR},
-      </if>
-      <if test="record.date2 != null">
-        DATE2 = #{record.date2,jdbcType=DATE},
-      </if>
-      <if test="record.date1 != null">
-        DATE1 = #{record.date1,jdbcType=DATE},
-      </if>
-      <if test="record.bz3 != null">
-        BZ3 = #{record.bz3,jdbcType=VARCHAR},
-      </if>
-      <if test="record.bz2 != null">
-        BZ2 = #{record.bz2,jdbcType=VARCHAR},
-      </if>
-      <if test="record.bz1 != null">
-        BZ1 = #{record.bz1,jdbcType=VARCHAR},
-      </if>
-      <if test="record.preFactor != null">
-        pre_factor = #{record.preFactor,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update presentation_t
-    set pre_id = #{record.preId,jdbcType=BIGINT},
-      pre_name = #{record.preName,jdbcType=VARCHAR},
-      pre_create_time = #{record.preCreateTime,jdbcType=DATE},
-      em_id = #{record.emId,jdbcType=INTEGER},
-      coincidence_degree = #{record.coincidenceDegree,jdbcType=VARCHAR},
-      pre_comment = #{record.preComment,jdbcType=VARCHAR},
-      DATE2 = #{record.date2,jdbcType=DATE},
-      DATE1 = #{record.date1,jdbcType=DATE},
-      BZ3 = #{record.bz3,jdbcType=VARCHAR},
-      BZ2 = #{record.bz2,jdbcType=VARCHAR},
-      BZ1 = #{record.bz1,jdbcType=VARCHAR},
-      pre_factor = #{record.preFactor,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.Presentation">
     update presentation_t
     <set>

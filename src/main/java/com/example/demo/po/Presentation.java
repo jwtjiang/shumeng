@@ -2,30 +2,44 @@ package com.example.demo.po;
 
 import java.util.Date;
 
+/**
+ *报告实体类
+ */
 public class Presentation {
+    /** 报告ID **/
     private Long preId;
-
+    /** 报告名称**/
     private String preName;
-
+    /**  报告生成时间**/
     private Date preCreateTime;
-
+    /** 评估模型ID **/
     private Integer emId;
-
+    /**  符合度**/
     private String coincidenceDegree;
-
+    /** 报告点评 **/
     private String preComment;
-
+    /** date预留字段2 **/
     private Date date2;
-
+    /** date预留字段1 **/
     private Date date1;
-
+    /** 字符串预留字段3 **/
     private String bz3;
-
+    /** 字符串预留字段2 **/
     private String bz2;
-
+    /** 字符串预留字段1 **/
     private String bz1;
-
+    /** 风险类型 **/
     private String preFactor;
+    /** 报告删除状态 0 删除 1未删 **/
+    private int preDelstatus;
+
+    public int getPreDelstatus() {
+        return preDelstatus;
+    }
+
+    public void setPreDelstatus(int preDelstatus) {
+        this.preDelstatus = preDelstatus;
+    }
 
     public Long getPreId() {
         return preId;
