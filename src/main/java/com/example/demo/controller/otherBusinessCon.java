@@ -41,4 +41,22 @@ public class otherBusinessCon {
         }
         return map;
     }
+
+    /**
+     * 删除风险评估列表信息
+     * @param params
+     * @return
+     */
+    @RequestMapping
+    public Map delectRiskList(@RequestParam("params") String params){
+        Map map = new HashMap();
+        try {
+            map.put(Constant.con_success,Constant.con_success_value);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put(Constant.con_false,Constant.con_false_value);
+            map.put(Constant.retValue,Constant.retValue_delect_false);
+        }
+        return map;
+    }
 }

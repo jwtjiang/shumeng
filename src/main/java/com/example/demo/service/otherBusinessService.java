@@ -13,4 +13,10 @@ public interface otherBusinessService {
      * @return list
      */
     public List riskList(String params);
+
+    /**
+     * 删除风险评估列表信息
+     * @param params
+     */
+    public void delectRiskList(String params);
 }

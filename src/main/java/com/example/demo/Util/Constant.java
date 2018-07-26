@@ -22,4 +22,6 @@ public class Constant {
     public static final String retValue = "retValue";
     //获取失败
     public static final String retValue_false = "获取失败";
+    //获取失败
+    public static final String retValue_delect_false = "删除失败";
 }

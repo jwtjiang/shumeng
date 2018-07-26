@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.exportCsvService;
-
+import com.example.demo.po.evaluationModel;
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,9 +21,9 @@ public class exportCsvCon {
     @RequestMapping("/hello")
     public String name (@RequestParam("id") int id){
 
-        String o = "{'area':{'area':'1','pagetype':'home'},'pagetype':'home'}";
+        String o = "{'emName':'home'}";
         Map<String, Object> itemMap = jsonTranUtil.JsonToMap(o);
-        System.out.println(itemMap.get("pagetype"));
+        System.out.println(itemMap.get("emName"));
         return exportcsvservice.name(id);
     }
 }
