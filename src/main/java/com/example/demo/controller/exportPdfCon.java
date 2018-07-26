@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.po.t_base_report;
+import com.example.demo.po.evaluationModel;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -30,23 +30,23 @@ public class exportPdfCon {
         Document document = new Document();
         PdfWriter.getInstance(document, response.getOutputStream());
         document.open();
-        List<t_base_report> list = new ArrayList<t_base_report>();
+        List<evaluationModel> list = new ArrayList<evaluationModel>();
         for (int i=1;i<4;i++){
-            t_base_report student = new t_base_report();
-            student.setId(i);
+            evaluationModel student = new evaluationModel();
+            student.setEmId(i);
         }
         PdfPTable table1 = new PdfPTable(2);
         PdfPCell cell1 = new PdfPCell();
-        for (t_base_report studnet : list) {
-            t_base_report student = new t_base_report();
+        for (evaluationModel studnet : list) {
+            evaluationModel student = new evaluationModel();
             PdfPTable table = new PdfPTable(2);
             PdfPCell cell = new PdfPCell();
-            cell.setPhrase(new Paragraph(student.getId()+""));
+            cell.setPhrase(new Paragraph(student.getEmId()+""));
             table.addCell(cell);
             document.add(table);
 
             cell = new PdfPCell();
-            cell.setPhrase(new Paragraph(student.getId().toString()));
+            cell.setPhrase(new Paragraph(student.getEmId().toString()));
             table.addCell(cell);
             document.add(table);
         }

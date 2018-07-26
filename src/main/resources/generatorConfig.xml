@@ -23,15 +23,14 @@
                              targetProject="src/main/java" type="XMLMAPPER" />
 
         <!-- 数据库表 -->
-        <table  tableName="t_base_report" domainObjectName="t_base_report">
-            <!-- 设置别名 -->
-            <!--
-            <columnOverride column="ds_id" property="dsId" />
-            <columnOverride column="ds_name" property="dsName" />
-            <columnOverride column="dt_name" property="dtName" />
-            <columnOverride column="login_name" property="loginName" />
-            <columnOverride column="login_pwd" property="loginPwd" />
-             -->
+        <table  tableName="evaluation_model" domainObjectName="evaluationModel">
+
+        </table>
+        <table  tableName="line_details" domainObjectName="lineDetails">
+
+        </table>
+        <table  tableName="presentation_t" domainObjectName="presentationT">
+
         </table>
     </context>
 </generatorConfiguration>
