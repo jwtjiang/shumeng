@@ -1,30 +1,23 @@
 package com.example.demo.dao;
 
-import com.example.demo.po.lineDetails;
-import com.example.demo.po.lineDetailsExample;
-import java.util.List;
+
+import com.example.demo.po.LineDetails;
 import org.apache.ibatis.annotations.Param;
 
-public interface lineDetailsMapper {
-    int countByExample(lineDetailsExample example);
+import java.util.List;
 
-    int deleteByExample(lineDetailsExample example);
+
+public interface LineDetailsMapper {
 
     int deleteByPrimaryKey(String lineId);
 
-    int insert(lineDetails record);
+    int insert(LineDetails record);
 
-    int insertSelective(lineDetails record);
+    int insertSelective(LineDetails record);
 
-    List<lineDetails> selectByExample(lineDetailsExample example);
+    LineDetails selectByPrimaryKey(String lineId);
 
-    lineDetails selectByPrimaryKey(String lineId);
+    int updateByPrimaryKeySelective(LineDetails record);
 
-    int updateByExampleSelective(@Param("record") lineDetails record, @Param("example") lineDetailsExample example);
-
-    int updateByExample(@Param("record") lineDetails record, @Param("example") lineDetailsExample example);
-
-    int updateByPrimaryKeySelective(lineDetails record);
-
-    int updateByPrimaryKey(lineDetails record);
+    int updateByPrimaryKey(LineDetails record);
 }

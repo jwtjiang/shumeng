@@ -2,7 +2,7 @@ package com.example.demo.po;
 
 import java.util.Date;
 
-public class lineDetails {
+public class LineDetails {
     private String lineId;
 
     private String lineName;
@@ -14,8 +14,6 @@ public class lineDetails {
     private String parentregion;
 
     private Integer emId;
-
-    private Integer lineDelStatus;
 
     private Long preId;
 
@@ -91,14 +89,6 @@ public class lineDetails {
 
     public void setEmId(Integer emId) {
         this.emId = emId;
-    }
-
-    public Integer getLineDelStatus() {
-        return lineDelStatus;
-    }
-
-    public void setLineDelStatus(Integer lineDelStatus) {
-        this.lineDelStatus = lineDelStatus;
     }
 
     public Long getPreId() {

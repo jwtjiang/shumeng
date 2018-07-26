@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edas.dao.PresentationMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.po.Presentation">
+    <id column="pre_id" jdbcType="BIGINT" property="preId" />
+    <result column="pre_name" jdbcType="VARCHAR" property="preName" />
+    <result column="pre_create_time" jdbcType="DATE" property="preCreateTime" />
+    <result column="em_id" jdbcType="INTEGER" property="emId" />
+    <result column="coincidence_degree" jdbcType="VARCHAR" property="coincidenceDegree" />
+    <result column="pre_comment" jdbcType="VARCHAR" property="preComment" />
+    <result column="DATE2" jdbcType="DATE" property="date2" />
+    <result column="DATE1" jdbcType="DATE" property="date1" />
+    <result column="BZ3" jdbcType="VARCHAR" property="bz3" />
+    <result column="BZ2" jdbcType="VARCHAR" property="bz2" />
+    <result column="BZ1" jdbcType="VARCHAR" property="bz1" />
+    <result column="pre_factor" jdbcType="VARCHAR" property="preFactor" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pre_id, pre_name, pre_create_time, em_id, coincidence_degree, pre_comment, DATE2, 
+    DATE1, BZ3, BZ2, BZ1, pre_factor
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.po.PresentationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from presentation_t
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from presentation_t
+    where pre_id = #{preId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from presentation_t
+    where pre_id = #{preId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.po.PresentationExample">
+    delete from presentation_t
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.po.Presentation">
+    insert into presentation_t (pre_id, pre_name, pre_create_time, 
+      em_id, coincidence_degree, pre_comment, 
+      DATE2, DATE1, BZ3, BZ2, 
+      BZ1, pre_factor)
+    values (#{preId,jdbcType=BIGINT}, #{preName,jdbcType=VARCHAR}, #{preCreateTime,jdbcType=DATE}, 
+      #{emId,jdbcType=INTEGER}, #{coincidenceDegree,jdbcType=VARCHAR}, #{preComment,jdbcType=VARCHAR}, 
+      #{date2,jdbcType=DATE}, #{date1,jdbcType=DATE}, #{bz3,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR}, #{preFactor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.po.Presentation">
+    insert into presentation_t
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="preId != null">
+        pre_id,
+      </if>
+      <if test="preName != null">
+        pre_name,
+      </if>
+      <if test="preCreateTime != null">
+        pre_create_time,
+      </if>
+      <if test="emId != null">
+        em_id,
+      </if>
+      <if test="coincidenceDegree != null">
+        coincidence_degree,
+      </if>
+      <if test="preComment != null">
+        pre_comment,
+      </if>
+      <if test="date2 != null">
+        DATE2,
+      </if>
+      <if test="date1 != null">
+        DATE1,
+      </if>
+      <if test="bz3 != null">
+        BZ3,
+      </if>
+      <if test="bz2 != null">
+        BZ2,
+      </if>
+      <if test="bz1 != null">
+        BZ1,
+      </if>
+      <if test="preFactor != null">
+        pre_factor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="preId != null">
+        #{preId,jdbcType=BIGINT},
+      </if>
+      <if test="preName != null">
+        #{preName,jdbcType=VARCHAR},
+      </if>
+      <if test="preCreateTime != null">
+        #{preCreateTime,jdbcType=DATE},
+      </if>
+      <if test="emId != null">
+        #{emId,jdbcType=INTEGER},
+      </if>
+      <if test="coincidenceDegree != null">
+        #{coincidenceDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="preComment != null">
+        #{preComment,jdbcType=VARCHAR},
+      </if>
+      <if test="date2 != null">
+        #{date2,jdbcType=DATE},
+      </if>
+      <if test="date1 != null">
+        #{date1,jdbcType=DATE},
+      </if>
+      <if test="bz3 != null">
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null">
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null">
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="preFactor != null">
+        #{preFactor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.po.PresentationExample" resultType="java.lang.Long">
+    select count(*) from presentation_t
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update presentation_t
+    <set>
+      <if test="record.preId != null">
+        pre_id = #{record.preId,jdbcType=BIGINT},
+      </if>
+      <if test="record.preName != null">
+        pre_name = #{record.preName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preCreateTime != null">
+        pre_create_time = #{record.preCreateTime,jdbcType=DATE},
+      </if>
+      <if test="record.emId != null">
+        em_id = #{record.emId,jdbcType=INTEGER},
+      </if>
+      <if test="record.coincidenceDegree != null">
+        coincidence_degree = #{record.coincidenceDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preComment != null">
+        pre_comment = #{record.preComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.date2 != null">
+        DATE2 = #{record.date2,jdbcType=DATE},
+      </if>
+      <if test="record.date1 != null">
+        DATE1 = #{record.date1,jdbcType=DATE},
+      </if>
+      <if test="record.bz3 != null">
+        BZ3 = #{record.bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz2 != null">
+        BZ2 = #{record.bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz1 != null">
+        BZ1 = #{record.bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preFactor != null">
+        pre_factor = #{record.preFactor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update presentation_t
+    set pre_id = #{record.preId,jdbcType=BIGINT},
+      pre_name = #{record.preName,jdbcType=VARCHAR},
+      pre_create_time = #{record.preCreateTime,jdbcType=DATE},
+      em_id = #{record.emId,jdbcType=INTEGER},
+      coincidence_degree = #{record.coincidenceDegree,jdbcType=VARCHAR},
+      pre_comment = #{record.preComment,jdbcType=VARCHAR},
+      DATE2 = #{record.date2,jdbcType=DATE},
+      DATE1 = #{record.date1,jdbcType=DATE},
+      BZ3 = #{record.bz3,jdbcType=VARCHAR},
+      BZ2 = #{record.bz2,jdbcType=VARCHAR},
+      BZ1 = #{record.bz1,jdbcType=VARCHAR},
+      pre_factor = #{record.preFactor,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.Presentation">
+    update presentation_t
+    <set>
+      <if test="preName != null">
+        pre_name = #{preName,jdbcType=VARCHAR},
+      </if>
+      <if test="preCreateTime != null">
+        pre_create_time = #{preCreateTime,jdbcType=DATE},
+      </if>
+      <if test="emId != null">
+        em_id = #{emId,jdbcType=INTEGER},
+      </if>
+      <if test="coincidenceDegree != null">
+        coincidence_degree = #{coincidenceDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="preComment != null">
+        pre_comment = #{preComment,jdbcType=VARCHAR},
+      </if>
+      <if test="date2 != null">
+        DATE2 = #{date2,jdbcType=DATE},
+      </if>
+      <if test="date1 != null">
+        DATE1 = #{date1,jdbcType=DATE},
+      </if>
+      <if test="bz3 != null">
+        BZ3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null">
+        BZ2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null">
+        BZ1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="preFactor != null">
+        pre_factor = #{preFactor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pre_id = #{preId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.po.Presentation">
+    update presentation_t
+    set pre_name = #{preName,jdbcType=VARCHAR},
+      pre_create_time = #{preCreateTime,jdbcType=DATE},
+      em_id = #{emId,jdbcType=INTEGER},
+      coincidence_degree = #{coincidenceDegree,jdbcType=VARCHAR},
+      pre_comment = #{preComment,jdbcType=VARCHAR},
+      DATE2 = #{date2,jdbcType=DATE},
+      DATE1 = #{date1,jdbcType=DATE},
+      BZ3 = #{bz3,jdbcType=VARCHAR},
+      BZ2 = #{bz2,jdbcType=VARCHAR},
+      BZ1 = #{bz1,jdbcType=VARCHAR},
+      pre_factor = #{preFactor,jdbcType=VARCHAR}
+    where pre_id = #{preId,jdbcType=BIGINT}
+  </update>
+</mapper>
