@@ -2,60 +2,48 @@ package com.example.demo.po;
 
 import java.util.Date;
 
-/**
- *线路实体类
- */
-public class LineDetails {
-    /** 线路ID **/
+public class lineDetails {
     private String lineId;
-    /**  线路名称 **/
+
     private String lineName;
-    /**  杆塔名称 **/
+
     private String towerName;
-    /**  杆塔id **/
+
     private String towerId;
-    /**  杆塔所在地区的父地区编号 **/
+
     private String parentregion;
-    /**  评估模型id **/
+
     private Integer emId;
-    /**  报告id **/
+
+    private Integer lineDelStatus;
+
     private Long preId;
-    /**  供电公司 **/
+
     private String maintainer;
-    /**  绝缘爬距 **/
+
     private Integer insulationCreepDistance;
-    /**  绝缘吨位（T） **/
+
     private Integer insulationTon;
-    /** 绝缘配置高度 **/
+
     private Integer insulationHigh;
-    /**  绝缘配置_每串个数 **/
+
     private Integer insulationBunchNum;
-    /**  接地电阻设置值 **/
+
     private Integer resistanceDesignValue;
-    /**  杆塔_纬度 **/
+
     private Float stationmap2;
-    /**  杆塔_经度 **/
+
     private Float stationmap1;
-    /**  地形地貌 **/
+
     private String terrain;
-    /**  电压等级 **/
+
     private String voltage;
-    /**  月份 **/
+
     private Integer datetimeMonth;
-    /**  日期时间 **/
+
     private Date datetime;
-    /**  线路长度 **/
+
     private Float lineLength;
-    /**  0 删除 1未删 **/
-    private int lineDelstatus;
-
-    public int getLineDelstatus() {
-        return lineDelstatus;
-    }
-
-    public void setLineDelstatus(int lineDelstatus) {
-        this.lineDelstatus = lineDelstatus;
-    }
 
     public String getLineId() {
         return lineId;
@@ -103,6 +91,14 @@ public class LineDetails {
 
     public void setEmId(Integer emId) {
         this.emId = emId;
+    }
+
+    public Integer getLineDelStatus() {
+        return lineDelStatus;
+    }
+
+    public void setLineDelStatus(Integer lineDelStatus) {
+        this.lineDelStatus = lineDelStatus;
     }
 
     public Long getPreId() {

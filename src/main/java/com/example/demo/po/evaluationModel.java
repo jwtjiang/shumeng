@@ -1,12 +1,8 @@
 package com.example.demo.po;
 
-/**
- *风险模型实体类
- */
-public class EvaluationModel {
-    /** 评估模型id **/
+public class evaluationModel {
     private Integer emId;
-    /** 评估模型名称 **/
+
     private String emName;
 
     public Integer getEmId() {
