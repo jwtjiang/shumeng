@@ -6,7 +6,7 @@ package com.example.demo.Util;
  */
 public class Constant {
     //0代表不删除
-    private static final String delete_no = "0";
+    public static final String delete_no = "0";
     //1代表删除
-    private static final String delete_yes = "1";
+    public  static final String delete_yes = "1";
 }
