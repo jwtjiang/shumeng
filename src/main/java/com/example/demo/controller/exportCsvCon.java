@@ -23,7 +23,7 @@ public class exportCsvCon {
 
         String o = "{'emName':'home'}";
         Map<String, Object> itemMap = jsonTranUtil.JsonToMap(o);
-        System.out.println(itemMap.get("emName"));
+        System.out.println(itemMap.get("pagetype"));
         return exportcsvservice.name(id);
     }
 }

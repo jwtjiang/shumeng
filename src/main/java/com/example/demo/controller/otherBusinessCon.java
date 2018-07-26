@@ -47,10 +47,11 @@ public class otherBusinessCon {
      * @param params
      * @return
      */
-    @RequestMapping
+    @RequestMapping("/delectRiskList")
     public Map delectRiskList(@RequestParam("params") String params){
         Map map = new HashMap();
         try {
+            otherbusinessservice.delectRiskList(params);
             map.put(Constant.con_success,Constant.con_success_value);
         }catch (Exception e){
             e.printStackTrace();
