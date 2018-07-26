@@ -11,10 +11,10 @@ import java.util.List;
  */
 @Service
 public class otherBusinessServiceImp implements otherBusinessService{
-    @Override
     /**
      * 风险评估查询列表
      */
+    @Override
     public List riskList(String params){
         //获取列表数据
         List list = new ArrayList();

@@ -3,6 +3,8 @@ package com.example.demo.dao;
 import com.example.demo.po.lineDetails;
 import com.example.demo.po.lineDetailsExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface lineDetailsMapper {
@@ -27,4 +29,11 @@ public interface lineDetailsMapper {
     int updateByPrimaryKeySelective(lineDetails record);
 
     int updateByPrimaryKey(lineDetails record);
+
+    /**
+     *
+     * @param map
+     * @return list
+     */
+    public List riskList(Map map);
 }

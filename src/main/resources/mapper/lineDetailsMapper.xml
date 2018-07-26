@@ -463,4 +463,74 @@
       line_length = #{lineLength,jdbcType=REAL}
     where line_id = #{lineId,jdbcType=VARCHAR}
   </update>
+  <select id="riskList" parameterType="java.util.Map" resultType="java.util.List">
+    select
+    <include refid="Base_Column_List" />
+    from line_details
+    where 1=1
+    <if test="lineId != null" >
+      AND line_id = #{line_id}  ,
+    </if>
+    <if test="lineName != null" >
+      AND line_name = #{line_name},
+    </if>
+    <if test="towerName != null" >
+      AND tower_name = #{tower_name},
+    </if>
+    <if test="towerId != null" >
+      AND tower_id = #{tower_id},
+    </if>
+    <if test="parentregion != null" >
+      AND parentregion = #{parentregion},
+    </if>
+    <if test="emId != null" >
+      AND em_id = #{em_id},
+    </if>
+    <if test="lineDelStatus != null" >
+      AND line_del_status = #{line_del_status},
+    </if>
+    <if test="preId != null" >
+      AND pre_id = #{pre_id},
+    </if>
+    <if test="maintainer != null" >
+      AND maintainer = #{maintainer},
+    </if>
+    <if test="insulationCreepDistance != null" >
+      AND insulation_creep_distance = #{insulation_creep_distance},
+    </if>
+    <if test="insulationTon != null" >
+      AND insulation_ton = #{insulation_ton},
+    </if>
+    <if test="insulationHigh != null" >
+      AND insulation_high = #{insulation_high},
+    </if>
+    <if test="insulationBunchNum != null" >
+      AND insulation_bunch_num = #{insulation_bunch_num},
+    </if>
+    <if test="resistanceDesignValue != null" >
+      AND resistance_design_value = #{resistance_design_value},
+    </if>
+    <if test="stationmap2 != null" >
+      AND stationmap_2 = #{stationmap_2},
+    </if>
+    <if test="stationmap1 != null" >
+      AND stationmap_1 = #{stationmap_1},
+    </if>
+    <if test="terrain != null" >
+      AND terrain = #{terrain},
+    </if>
+    <if test="voltage != null" >
+      AND voltage = #{voltage},
+    </if>
+    <if test="datetimeMonth != null" >
+      AND datetime_month = #{datetime_month},
+    </if>
+    <if test="datetime != null" >
+      AND datetime = #{datetime},
+    </if>
+    <if test="lineLength != null" >
+      AND line_length = #{line_length},
+    </if>
+    AND  limit ${page},${pageSize}
+  </select>
 </mapper>

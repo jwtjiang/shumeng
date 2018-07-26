@@ -3,6 +3,8 @@ package com.example.demo.dao;
 import com.example.demo.po.evaluationModel;
 import com.example.demo.po.evaluationModelExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface evaluationModelMapper {
@@ -27,4 +29,5 @@ public interface evaluationModelMapper {
     int updateByPrimaryKeySelective(evaluationModel record);
 
     int updateByPrimaryKey(evaluationModel record);
+
 }
