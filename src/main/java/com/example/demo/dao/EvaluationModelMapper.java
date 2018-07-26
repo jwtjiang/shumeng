@@ -1,22 +1,30 @@
 package com.example.demo.dao;
 
-
-import com.example.demo.po.EvaluationModel;
+import com.example.demo.po.evaluationModel;
+import com.example.demo.po.evaluationModelExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+public interface evaluationModelMapper {
+    int countByExample(evaluationModelExample example);
 
-public interface EvaluationModelMapper {
+    int deleteByExample(evaluationModelExample example);
 
     int deleteByPrimaryKey(Integer emId);
 
-    int insert(EvaluationModel record);
+    int insert(evaluationModel record);
 
-    int insertSelective(EvaluationModel record);
+    int insertSelective(evaluationModel record);
 
-    EvaluationModel selectByPrimaryKey(Integer emId);
+    List<evaluationModel> selectByExample(evaluationModelExample example);
 
-    int updateByPrimaryKeySelective(EvaluationModel record);
+    evaluationModel selectByPrimaryKey(Integer emId);
 
-    int updateByPrimaryKey(EvaluationModel record);
+    int updateByExampleSelective(@Param("record") evaluationModel record, @Param("example") evaluationModelExample example);
+
+    int updateByExample(@Param("record") evaluationModel record, @Param("example") evaluationModelExample example);
+
+    int updateByPrimaryKeySelective(evaluationModel record);
+
+    int updateByPrimaryKey(evaluationModel record);
 }

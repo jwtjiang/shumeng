@@ -1,6 +1,6 @@
 package com.example.demo.po;
 
-public class EvaluationModel {
+public class evaluationModel {
     private Integer emId;
 
     private String emName;
