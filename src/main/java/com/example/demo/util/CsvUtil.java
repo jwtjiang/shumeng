@@ -1,4 +1,4 @@
-package com.example.demo.util;
+package com.example.demo.Util;
 
 import java.io.InputStream;
 
