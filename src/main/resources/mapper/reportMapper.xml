@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.reportMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.po.report" >
+    <id column="reportId" property="reportid" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="DATE" />
+    <result column="conformity" property="conformity" jdbcType="VARCHAR" />
+    <result column="report_del_status" property="reportDelStatus" jdbcType="INTEGER" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="DATE2" property="date2" jdbcType="DATE" />
+    <result column="DATE1" property="date1" jdbcType="DATE" />
+    <result column="BZ3" property="bz3" jdbcType="VARCHAR" />
+    <result column="BZ2" property="bz2" jdbcType="VARCHAR" />
+    <result column="BZ1" property="bz1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    reportId, title, createTime, conformity, report_del_status, model, DATE2, DATE1, 
+    BZ3, BZ2, BZ1
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.po.reportExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from report
+    where reportId = #{reportid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from report
+    where reportId = #{reportid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.po.reportExample" >
+    delete from report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.po.report" >
+    insert into report (reportId, title, createTime, 
+      conformity, report_del_status, model, 
+      DATE2, DATE1, BZ3, BZ2, 
+      BZ1)
+    values (#{reportid,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, 
+      #{conformity,jdbcType=VARCHAR}, #{reportDelStatus,jdbcType=INTEGER}, #{model,jdbcType=VARCHAR}, 
+      #{date2,jdbcType=DATE}, #{date1,jdbcType=DATE}, #{bz3,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.po.report" >
+    insert into report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="reportid != null" >
+        reportId,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="conformity != null" >
+        conformity,
+      </if>
+      <if test="reportDelStatus != null" >
+        report_del_status,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="date2 != null" >
+        DATE2,
+      </if>
+      <if test="date1 != null" >
+        DATE1,
+      </if>
+      <if test="bz3 != null" >
+        BZ3,
+      </if>
+      <if test="bz2 != null" >
+        BZ2,
+      </if>
+      <if test="bz1 != null" >
+        BZ1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="reportid != null" >
+        #{reportid,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="conformity != null" >
+        #{conformity,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDelStatus != null" >
+        #{reportDelStatus,jdbcType=INTEGER},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="date2 != null" >
+        #{date2,jdbcType=DATE},
+      </if>
+      <if test="date1 != null" >
+        #{date1,jdbcType=DATE},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.po.reportExample" resultType="java.lang.Integer" >
+    select count(*) from report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update report
+    <set >
+      <if test="record.reportid != null" >
+        reportId = #{record.reportid,jdbcType=BIGINT},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=DATE},
+      </if>
+      <if test="record.conformity != null" >
+        conformity = #{record.conformity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportDelStatus != null" >
+        report_del_status = #{record.reportDelStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.model != null" >
+        model = #{record.model,jdbcType=VARCHAR},
+      </if>
+      <if test="record.date2 != null" >
+        DATE2 = #{record.date2,jdbcType=DATE},
+      </if>
+      <if test="record.date1 != null" >
+        DATE1 = #{record.date1,jdbcType=DATE},
+      </if>
+      <if test="record.bz3 != null" >
+        BZ3 = #{record.bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz2 != null" >
+        BZ2 = #{record.bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz1 != null" >
+        BZ1 = #{record.bz1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update report
+    set reportId = #{record.reportid,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      createTime = #{record.createtime,jdbcType=DATE},
+      conformity = #{record.conformity,jdbcType=VARCHAR},
+      report_del_status = #{record.reportDelStatus,jdbcType=INTEGER},
+      model = #{record.model,jdbcType=VARCHAR},
+      DATE2 = #{record.date2,jdbcType=DATE},
+      DATE1 = #{record.date1,jdbcType=DATE},
+      BZ3 = #{record.bz3,jdbcType=VARCHAR},
+      BZ2 = #{record.bz2,jdbcType=VARCHAR},
+      BZ1 = #{record.bz1,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.report" >
+    update report
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="conformity != null" >
+        conformity = #{conformity,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDelStatus != null" >
+        report_del_status = #{reportDelStatus,jdbcType=INTEGER},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="date2 != null" >
+        DATE2 = #{date2,jdbcType=DATE},
+      </if>
+      <if test="date1 != null" >
+        DATE1 = #{date1,jdbcType=DATE},
+      </if>
+      <if test="bz3 != null" >
+        BZ3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        BZ2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        BZ1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where reportId = #{reportid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.po.report" >
+    update report
+    set title = #{title,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=DATE},
+      conformity = #{conformity,jdbcType=VARCHAR},
+      report_del_status = #{reportDelStatus,jdbcType=INTEGER},
+      model = #{model,jdbcType=VARCHAR},
+      DATE2 = #{date2,jdbcType=DATE},
+      DATE1 = #{date1,jdbcType=DATE},
+      BZ3 = #{bz3,jdbcType=VARCHAR},
+      BZ2 = #{bz2,jdbcType=VARCHAR},
+      BZ1 = #{bz1,jdbcType=VARCHAR}
+    where reportId = #{reportid,jdbcType=BIGINT}
+  </update>
+</mapper>
