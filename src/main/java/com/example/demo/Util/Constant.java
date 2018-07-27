@@ -1,5 +1,5 @@
 
-package com.example.demo.Util;
+package com.example.demo.util;
 
 /**
  * Created by admin on 2018/7/26.
