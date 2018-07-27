@@ -23,13 +23,16 @@
                              targetProject="src/main/java" type="XMLMAPPER" />
 
         <!-- 数据库表 -->
-        <table  tableName="evaluation_model" domainObjectName="evaluationModel">
+        <table  tableName="report" domainObjectName="report">
 
         </table>
         <table  tableName="line_details" domainObjectName="lineDetails">
 
         </table>
-        <table  tableName="presentation_t" domainObjectName="presentationT">
+        <table  tableName="comment" domainObjectName="comment">
+
+        </table>
+        <table  tableName="line_rep" domainObjectName="lineRep">
 
         </table>
     </context>

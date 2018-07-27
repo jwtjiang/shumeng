@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
-import com.example.demo.util.jsonTranUtil;
+import com.example.demo.Util.jsonTranUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.exportCsvService;
-import com.example.demo.po.evaluationModel;
+
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

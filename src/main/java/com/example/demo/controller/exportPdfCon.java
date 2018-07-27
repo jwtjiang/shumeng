@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.po.evaluationModel;
+import com.example.demo.po.comment;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -30,23 +30,23 @@ public class exportPdfCon {
         Document document = new Document();
         PdfWriter.getInstance(document, response.getOutputStream());
         document.open();
-        List<evaluationModel> list = new ArrayList<evaluationModel>();
+        List<comment> list = new ArrayList<comment>();
         for (int i=1;i<4;i++){
-            evaluationModel student = new evaluationModel();
-            student.setEmId(i);
+            comment student = new comment();
+            student.setContent(i+"");
         }
         PdfPTable table1 = new PdfPTable(2);
         PdfPCell cell1 = new PdfPCell();
-        for (evaluationModel studnet : list) {
-            evaluationModel student = new evaluationModel();
+        for (comment studnet : list) {
+            comment student = new comment();
             PdfPTable table = new PdfPTable(2);
             PdfPCell cell = new PdfPCell();
-            cell.setPhrase(new Paragraph(student.getEmId()+""));
+            cell.setPhrase(new Paragraph(student.getCommentid()+""));
             table.addCell(cell);
             document.add(table);
 
             cell = new PdfPCell();
-            cell.setPhrase(new Paragraph(student.getEmId().toString()));
+            cell.setPhrase(new Paragraph(student.getCommentid().toString()));
             table.addCell(cell);
             document.add(table);
         }

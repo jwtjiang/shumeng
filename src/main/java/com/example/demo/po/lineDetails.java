@@ -13,37 +13,21 @@ public class lineDetails {
 
     private String parentregion;
 
-    private Integer emId;
+    private String whdj;
 
-    private Integer lineDelStatus;
-
-    private Long preId;
+    private String model;
 
     private String maintainer;
 
-    private Integer insulationCreepDistance;
+    private String region;
 
-    private Integer insulationTon;
+    private Integer lineDelStatus;
 
-    private Integer insulationHigh;
-
-    private Integer insulationBunchNum;
-
-    private Integer resistanceDesignValue;
-
-    private Float stationmap2;
-
-    private Float stationmap1;
-
-    private String terrain;
-
-    private String voltage;
+    private String dilei;
 
     private Integer datetimeMonth;
 
     private Date datetime;
-
-    private Float lineLength;
 
     public String getLineId() {
         return lineId;
@@ -85,28 +69,20 @@ public class lineDetails {
         this.parentregion = parentregion;
     }
 
-    public Integer getEmId() {
-        return emId;
+    public String getWhdj() {
+        return whdj;
     }
 
-    public void setEmId(Integer emId) {
-        this.emId = emId;
+    public void setWhdj(String whdj) {
+        this.whdj = whdj;
     }
 
-    public Integer getLineDelStatus() {
-        return lineDelStatus;
+    public String getModel() {
+        return model;
     }
 
-    public void setLineDelStatus(Integer lineDelStatus) {
-        this.lineDelStatus = lineDelStatus;
-    }
-
-    public Long getPreId() {
-        return preId;
-    }
-
-    public void setPreId(Long preId) {
-        this.preId = preId;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getMaintainer() {
@@ -117,76 +93,28 @@ public class lineDetails {
         this.maintainer = maintainer;
     }
 
-    public Integer getInsulationCreepDistance() {
-        return insulationCreepDistance;
+    public String getRegion() {
+        return region;
     }
 
-    public void setInsulationCreepDistance(Integer insulationCreepDistance) {
-        this.insulationCreepDistance = insulationCreepDistance;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public Integer getInsulationTon() {
-        return insulationTon;
+    public Integer getLineDelStatus() {
+        return lineDelStatus;
     }
 
-    public void setInsulationTon(Integer insulationTon) {
-        this.insulationTon = insulationTon;
+    public void setLineDelStatus(Integer lineDelStatus) {
+        this.lineDelStatus = lineDelStatus;
     }
 
-    public Integer getInsulationHigh() {
-        return insulationHigh;
+    public String getDilei() {
+        return dilei;
     }
 
-    public void setInsulationHigh(Integer insulationHigh) {
-        this.insulationHigh = insulationHigh;
-    }
-
-    public Integer getInsulationBunchNum() {
-        return insulationBunchNum;
-    }
-
-    public void setInsulationBunchNum(Integer insulationBunchNum) {
-        this.insulationBunchNum = insulationBunchNum;
-    }
-
-    public Integer getResistanceDesignValue() {
-        return resistanceDesignValue;
-    }
-
-    public void setResistanceDesignValue(Integer resistanceDesignValue) {
-        this.resistanceDesignValue = resistanceDesignValue;
-    }
-
-    public Float getStationmap2() {
-        return stationmap2;
-    }
-
-    public void setStationmap2(Float stationmap2) {
-        this.stationmap2 = stationmap2;
-    }
-
-    public Float getStationmap1() {
-        return stationmap1;
-    }
-
-    public void setStationmap1(Float stationmap1) {
-        this.stationmap1 = stationmap1;
-    }
-
-    public String getTerrain() {
-        return terrain;
-    }
-
-    public void setTerrain(String terrain) {
-        this.terrain = terrain;
-    }
-
-    public String getVoltage() {
-        return voltage;
-    }
-
-    public void setVoltage(String voltage) {
-        this.voltage = voltage;
+    public void setDilei(String dilei) {
+        this.dilei = dilei;
     }
 
     public Integer getDatetimeMonth() {
@@ -203,13 +131,5 @@ public class lineDetails {
 
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
-    }
-
-    public Float getLineLength() {
-        return lineLength;
-    }
-
-    public void setLineLength(Float lineLength) {
-        this.lineLength = lineLength;
     }
 }

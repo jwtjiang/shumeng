@@ -2,13 +2,12 @@ package com.example.demo.service;
 
 import com.example.demo.Util.jsonTranUtil;
 import org.springframework.stereotype.Service;
-import com.example.demo.Util.Constant;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+import com.example.demo.Util.Constant;
 /**
  * Created by admin on 2018/7/26.
  * 其他业务接口实现类

@@ -7,22 +7,14 @@
     <result column="tower_name" property="towerName" jdbcType="VARCHAR" />
     <result column="tower_id" property="towerId" jdbcType="VARCHAR" />
     <result column="parentregion" property="parentregion" jdbcType="VARCHAR" />
-    <result column="em_id" property="emId" jdbcType="INTEGER" />
-    <result column="line_del_status" property="lineDelStatus" jdbcType="INTEGER" />
-    <result column="pre_id" property="preId" jdbcType="BIGINT" />
+    <result column="whdj" property="whdj" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
     <result column="maintainer" property="maintainer" jdbcType="VARCHAR" />
-    <result column="insulation_creep_distance" property="insulationCreepDistance" jdbcType="INTEGER" />
-    <result column="insulation_ton" property="insulationTon" jdbcType="INTEGER" />
-    <result column="insulation_high" property="insulationHigh" jdbcType="INTEGER" />
-    <result column="insulation_bunch_num" property="insulationBunchNum" jdbcType="INTEGER" />
-    <result column="resistance_design_value" property="resistanceDesignValue" jdbcType="INTEGER" />
-    <result column="stationmap_2" property="stationmap2" jdbcType="REAL" />
-    <result column="stationmap_1" property="stationmap1" jdbcType="REAL" />
-    <result column="terrain" property="terrain" jdbcType="VARCHAR" />
-    <result column="voltage" property="voltage" jdbcType="VARCHAR" />
+    <result column="region" property="region" jdbcType="VARCHAR" />
+    <result column="line_del_status" property="lineDelStatus" jdbcType="INTEGER" />
+    <result column="dilei" property="dilei" jdbcType="VARCHAR" />
     <result column="datetime_month" property="datetimeMonth" jdbcType="INTEGER" />
     <result column="datetime" property="datetime" jdbcType="DATE" />
-    <result column="line_length" property="lineLength" jdbcType="REAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -83,10 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    line_id, line_name, tower_name, tower_id, parentregion, em_id, line_del_status, pre_id, 
-    maintainer, insulation_creep_distance, insulation_ton, insulation_high, insulation_bunch_num, 
-    resistance_design_value, stationmap_2, stationmap_1, terrain, voltage, datetime_month, 
-    datetime, line_length
+    line_id, line_name, tower_name, tower_id, parentregion, whdj, model, maintainer, 
+    region, line_del_status, dilei, datetime_month, datetime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.po.lineDetailsExample" >
     select
@@ -120,21 +110,15 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.po.lineDetails" >
     insert into line_details (line_id, line_name, tower_name, 
-      tower_id, parentregion, em_id, 
-      line_del_status, pre_id, maintainer, 
-      insulation_creep_distance, insulation_ton, 
-      insulation_high, insulation_bunch_num, resistance_design_value, 
-      stationmap_2, stationmap_1, terrain, 
-      voltage, datetime_month, datetime, 
-      line_length)
+      tower_id, parentregion, whdj, 
+      model, maintainer, region, 
+      line_del_status, dilei, datetime_month, 
+      datetime)
     values (#{lineId,jdbcType=VARCHAR}, #{lineName,jdbcType=VARCHAR}, #{towerName,jdbcType=VARCHAR}, 
-      #{towerId,jdbcType=VARCHAR}, #{parentregion,jdbcType=VARCHAR}, #{emId,jdbcType=INTEGER}, 
-      #{lineDelStatus,jdbcType=INTEGER}, #{preId,jdbcType=BIGINT}, #{maintainer,jdbcType=VARCHAR}, 
-      #{insulationCreepDistance,jdbcType=INTEGER}, #{insulationTon,jdbcType=INTEGER}, 
-      #{insulationHigh,jdbcType=INTEGER}, #{insulationBunchNum,jdbcType=INTEGER}, #{resistanceDesignValue,jdbcType=INTEGER}, 
-      #{stationmap2,jdbcType=REAL}, #{stationmap1,jdbcType=REAL}, #{terrain,jdbcType=VARCHAR}, 
-      #{voltage,jdbcType=VARCHAR}, #{datetimeMonth,jdbcType=INTEGER}, #{datetime,jdbcType=DATE}, 
-      #{lineLength,jdbcType=REAL})
+      #{towerId,jdbcType=VARCHAR}, #{parentregion,jdbcType=VARCHAR}, #{whdj,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{maintainer,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, 
+      #{lineDelStatus,jdbcType=INTEGER}, #{dilei,jdbcType=VARCHAR}, #{datetimeMonth,jdbcType=INTEGER}, 
+      #{datetime,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.po.lineDetails" >
     insert into line_details
@@ -154,53 +138,29 @@
       <if test="parentregion != null" >
         parentregion,
       </if>
-      <if test="emId != null" >
-        em_id,
+      <if test="whdj != null" >
+        whdj,
       </if>
-      <if test="lineDelStatus != null" >
-        line_del_status,
-      </if>
-      <if test="preId != null" >
-        pre_id,
+      <if test="model != null" >
+        model,
       </if>
       <if test="maintainer != null" >
         maintainer,
       </if>
-      <if test="insulationCreepDistance != null" >
-        insulation_creep_distance,
+      <if test="region != null" >
+        region,
       </if>
-      <if test="insulationTon != null" >
-        insulation_ton,
+      <if test="lineDelStatus != null" >
+        line_del_status,
       </if>
-      <if test="insulationHigh != null" >
-        insulation_high,
-      </if>
-      <if test="insulationBunchNum != null" >
-        insulation_bunch_num,
-      </if>
-      <if test="resistanceDesignValue != null" >
-        resistance_design_value,
-      </if>
-      <if test="stationmap2 != null" >
-        stationmap_2,
-      </if>
-      <if test="stationmap1 != null" >
-        stationmap_1,
-      </if>
-      <if test="terrain != null" >
-        terrain,
-      </if>
-      <if test="voltage != null" >
-        voltage,
+      <if test="dilei != null" >
+        dilei,
       </if>
       <if test="datetimeMonth != null" >
         datetime_month,
       </if>
       <if test="datetime != null" >
         datetime,
-      </if>
-      <if test="lineLength != null" >
-        line_length,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -219,53 +179,29 @@
       <if test="parentregion != null" >
         #{parentregion,jdbcType=VARCHAR},
       </if>
-      <if test="emId != null" >
-        #{emId,jdbcType=INTEGER},
+      <if test="whdj != null" >
+        #{whdj,jdbcType=VARCHAR},
       </if>
-      <if test="lineDelStatus != null" >
-        #{lineDelStatus,jdbcType=INTEGER},
-      </if>
-      <if test="preId != null" >
-        #{preId,jdbcType=BIGINT},
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
       </if>
       <if test="maintainer != null" >
         #{maintainer,jdbcType=VARCHAR},
       </if>
-      <if test="insulationCreepDistance != null" >
-        #{insulationCreepDistance,jdbcType=INTEGER},
+      <if test="region != null" >
+        #{region,jdbcType=VARCHAR},
       </if>
-      <if test="insulationTon != null" >
-        #{insulationTon,jdbcType=INTEGER},
+      <if test="lineDelStatus != null" >
+        #{lineDelStatus,jdbcType=INTEGER},
       </if>
-      <if test="insulationHigh != null" >
-        #{insulationHigh,jdbcType=INTEGER},
-      </if>
-      <if test="insulationBunchNum != null" >
-        #{insulationBunchNum,jdbcType=INTEGER},
-      </if>
-      <if test="resistanceDesignValue != null" >
-        #{resistanceDesignValue,jdbcType=INTEGER},
-      </if>
-      <if test="stationmap2 != null" >
-        #{stationmap2,jdbcType=REAL},
-      </if>
-      <if test="stationmap1 != null" >
-        #{stationmap1,jdbcType=REAL},
-      </if>
-      <if test="terrain != null" >
-        #{terrain,jdbcType=VARCHAR},
-      </if>
-      <if test="voltage != null" >
-        #{voltage,jdbcType=VARCHAR},
+      <if test="dilei != null" >
+        #{dilei,jdbcType=VARCHAR},
       </if>
       <if test="datetimeMonth != null" >
         #{datetimeMonth,jdbcType=INTEGER},
       </if>
       <if test="datetime != null" >
         #{datetime,jdbcType=DATE},
-      </if>
-      <if test="lineLength != null" >
-        #{lineLength,jdbcType=REAL},
       </if>
     </trim>
   </insert>
@@ -293,53 +229,29 @@
       <if test="record.parentregion != null" >
         parentregion = #{record.parentregion,jdbcType=VARCHAR},
       </if>
-      <if test="record.emId != null" >
-        em_id = #{record.emId,jdbcType=INTEGER},
+      <if test="record.whdj != null" >
+        whdj = #{record.whdj,jdbcType=VARCHAR},
       </if>
-      <if test="record.lineDelStatus != null" >
-        line_del_status = #{record.lineDelStatus,jdbcType=INTEGER},
-      </if>
-      <if test="record.preId != null" >
-        pre_id = #{record.preId,jdbcType=BIGINT},
+      <if test="record.model != null" >
+        model = #{record.model,jdbcType=VARCHAR},
       </if>
       <if test="record.maintainer != null" >
         maintainer = #{record.maintainer,jdbcType=VARCHAR},
       </if>
-      <if test="record.insulationCreepDistance != null" >
-        insulation_creep_distance = #{record.insulationCreepDistance,jdbcType=INTEGER},
+      <if test="record.region != null" >
+        region = #{record.region,jdbcType=VARCHAR},
       </if>
-      <if test="record.insulationTon != null" >
-        insulation_ton = #{record.insulationTon,jdbcType=INTEGER},
+      <if test="record.lineDelStatus != null" >
+        line_del_status = #{record.lineDelStatus,jdbcType=INTEGER},
       </if>
-      <if test="record.insulationHigh != null" >
-        insulation_high = #{record.insulationHigh,jdbcType=INTEGER},
-      </if>
-      <if test="record.insulationBunchNum != null" >
-        insulation_bunch_num = #{record.insulationBunchNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.resistanceDesignValue != null" >
-        resistance_design_value = #{record.resistanceDesignValue,jdbcType=INTEGER},
-      </if>
-      <if test="record.stationmap2 != null" >
-        stationmap_2 = #{record.stationmap2,jdbcType=REAL},
-      </if>
-      <if test="record.stationmap1 != null" >
-        stationmap_1 = #{record.stationmap1,jdbcType=REAL},
-      </if>
-      <if test="record.terrain != null" >
-        terrain = #{record.terrain,jdbcType=VARCHAR},
-      </if>
-      <if test="record.voltage != null" >
-        voltage = #{record.voltage,jdbcType=VARCHAR},
+      <if test="record.dilei != null" >
+        dilei = #{record.dilei,jdbcType=VARCHAR},
       </if>
       <if test="record.datetimeMonth != null" >
         datetime_month = #{record.datetimeMonth,jdbcType=INTEGER},
       </if>
       <if test="record.datetime != null" >
         datetime = #{record.datetime,jdbcType=DATE},
-      </if>
-      <if test="record.lineLength != null" >
-        line_length = #{record.lineLength,jdbcType=REAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -353,22 +265,14 @@
       tower_name = #{record.towerName,jdbcType=VARCHAR},
       tower_id = #{record.towerId,jdbcType=VARCHAR},
       parentregion = #{record.parentregion,jdbcType=VARCHAR},
-      em_id = #{record.emId,jdbcType=INTEGER},
-      line_del_status = #{record.lineDelStatus,jdbcType=INTEGER},
-      pre_id = #{record.preId,jdbcType=BIGINT},
+      whdj = #{record.whdj,jdbcType=VARCHAR},
+      model = #{record.model,jdbcType=VARCHAR},
       maintainer = #{record.maintainer,jdbcType=VARCHAR},
-      insulation_creep_distance = #{record.insulationCreepDistance,jdbcType=INTEGER},
-      insulation_ton = #{record.insulationTon,jdbcType=INTEGER},
-      insulation_high = #{record.insulationHigh,jdbcType=INTEGER},
-      insulation_bunch_num = #{record.insulationBunchNum,jdbcType=INTEGER},
-      resistance_design_value = #{record.resistanceDesignValue,jdbcType=INTEGER},
-      stationmap_2 = #{record.stationmap2,jdbcType=REAL},
-      stationmap_1 = #{record.stationmap1,jdbcType=REAL},
-      terrain = #{record.terrain,jdbcType=VARCHAR},
-      voltage = #{record.voltage,jdbcType=VARCHAR},
+      region = #{record.region,jdbcType=VARCHAR},
+      line_del_status = #{record.lineDelStatus,jdbcType=INTEGER},
+      dilei = #{record.dilei,jdbcType=VARCHAR},
       datetime_month = #{record.datetimeMonth,jdbcType=INTEGER},
-      datetime = #{record.datetime,jdbcType=DATE},
-      line_length = #{record.lineLength,jdbcType=REAL}
+      datetime = #{record.datetime,jdbcType=DATE}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -388,53 +292,29 @@
       <if test="parentregion != null" >
         parentregion = #{parentregion,jdbcType=VARCHAR},
       </if>
-      <if test="emId != null" >
-        em_id = #{emId,jdbcType=INTEGER},
+      <if test="whdj != null" >
+        whdj = #{whdj,jdbcType=VARCHAR},
       </if>
-      <if test="lineDelStatus != null" >
-        line_del_status = #{lineDelStatus,jdbcType=INTEGER},
-      </if>
-      <if test="preId != null" >
-        pre_id = #{preId,jdbcType=BIGINT},
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
       </if>
       <if test="maintainer != null" >
         maintainer = #{maintainer,jdbcType=VARCHAR},
       </if>
-      <if test="insulationCreepDistance != null" >
-        insulation_creep_distance = #{insulationCreepDistance,jdbcType=INTEGER},
+      <if test="region != null" >
+        region = #{region,jdbcType=VARCHAR},
       </if>
-      <if test="insulationTon != null" >
-        insulation_ton = #{insulationTon,jdbcType=INTEGER},
+      <if test="lineDelStatus != null" >
+        line_del_status = #{lineDelStatus,jdbcType=INTEGER},
       </if>
-      <if test="insulationHigh != null" >
-        insulation_high = #{insulationHigh,jdbcType=INTEGER},
-      </if>
-      <if test="insulationBunchNum != null" >
-        insulation_bunch_num = #{insulationBunchNum,jdbcType=INTEGER},
-      </if>
-      <if test="resistanceDesignValue != null" >
-        resistance_design_value = #{resistanceDesignValue,jdbcType=INTEGER},
-      </if>
-      <if test="stationmap2 != null" >
-        stationmap_2 = #{stationmap2,jdbcType=REAL},
-      </if>
-      <if test="stationmap1 != null" >
-        stationmap_1 = #{stationmap1,jdbcType=REAL},
-      </if>
-      <if test="terrain != null" >
-        terrain = #{terrain,jdbcType=VARCHAR},
-      </if>
-      <if test="voltage != null" >
-        voltage = #{voltage,jdbcType=VARCHAR},
+      <if test="dilei != null" >
+        dilei = #{dilei,jdbcType=VARCHAR},
       </if>
       <if test="datetimeMonth != null" >
         datetime_month = #{datetimeMonth,jdbcType=INTEGER},
       </if>
       <if test="datetime != null" >
         datetime = #{datetime,jdbcType=DATE},
-      </if>
-      <if test="lineLength != null" >
-        line_length = #{lineLength,jdbcType=REAL},
       </if>
     </set>
     where line_id = #{lineId,jdbcType=VARCHAR}
@@ -445,92 +325,14 @@
       tower_name = #{towerName,jdbcType=VARCHAR},
       tower_id = #{towerId,jdbcType=VARCHAR},
       parentregion = #{parentregion,jdbcType=VARCHAR},
-      em_id = #{emId,jdbcType=INTEGER},
-      line_del_status = #{lineDelStatus,jdbcType=INTEGER},
-      pre_id = #{preId,jdbcType=BIGINT},
+      whdj = #{whdj,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
       maintainer = #{maintainer,jdbcType=VARCHAR},
-      insulation_creep_distance = #{insulationCreepDistance,jdbcType=INTEGER},
-      insulation_ton = #{insulationTon,jdbcType=INTEGER},
-      insulation_high = #{insulationHigh,jdbcType=INTEGER},
-      insulation_bunch_num = #{insulationBunchNum,jdbcType=INTEGER},
-      resistance_design_value = #{resistanceDesignValue,jdbcType=INTEGER},
-      stationmap_2 = #{stationmap2,jdbcType=REAL},
-      stationmap_1 = #{stationmap1,jdbcType=REAL},
-      terrain = #{terrain,jdbcType=VARCHAR},
-      voltage = #{voltage,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      line_del_status = #{lineDelStatus,jdbcType=INTEGER},
+      dilei = #{dilei,jdbcType=VARCHAR},
       datetime_month = #{datetimeMonth,jdbcType=INTEGER},
-      datetime = #{datetime,jdbcType=DATE},
-      line_length = #{lineLength,jdbcType=REAL}
+      datetime = #{datetime,jdbcType=DATE}
     where line_id = #{lineId,jdbcType=VARCHAR}
   </update>
-  <select id="riskList" parameterType="java.util.Map" resultType="java.util.List">
-    select
-    <include refid="Base_Column_List" />
-    from line_details
-    where 1=1
-    <if test="lineId != null" >
-      AND line_id = #{line_id}  ,
-    </if>
-    <if test="lineName != null" >
-      AND line_name = #{line_name},
-    </if>
-    <if test="towerName != null" >
-      AND tower_name = #{tower_name},
-    </if>
-    <if test="towerId != null" >
-      AND tower_id = #{tower_id},
-    </if>
-    <if test="parentregion != null" >
-      AND parentregion = #{parentregion},
-    </if>
-    <if test="emId != null" >
-      AND em_id = #{em_id},
-    </if>
-    <if test="lineDelStatus != null" >
-      AND line_del_status = #{line_del_status},
-    </if>
-    <if test="preId != null" >
-      AND pre_id = #{pre_id},
-    </if>
-    <if test="maintainer != null" >
-      AND maintainer = #{maintainer},
-    </if>
-    <if test="insulationCreepDistance != null" >
-      AND insulation_creep_distance = #{insulation_creep_distance},
-    </if>
-    <if test="insulationTon != null" >
-      AND insulation_ton = #{insulation_ton},
-    </if>
-    <if test="insulationHigh != null" >
-      AND insulation_high = #{insulation_high},
-    </if>
-    <if test="insulationBunchNum != null" >
-      AND insulation_bunch_num = #{insulation_bunch_num},
-    </if>
-    <if test="resistanceDesignValue != null" >
-      AND resistance_design_value = #{resistance_design_value},
-    </if>
-    <if test="stationmap2 != null" >
-      AND stationmap_2 = #{stationmap_2},
-    </if>
-    <if test="stationmap1 != null" >
-      AND stationmap_1 = #{stationmap_1},
-    </if>
-    <if test="terrain != null" >
-      AND terrain = #{terrain},
-    </if>
-    <if test="voltage != null" >
-      AND voltage = #{voltage},
-    </if>
-    <if test="datetimeMonth != null" >
-      AND datetime_month = #{datetime_month},
-    </if>
-    <if test="datetime != null" >
-      AND datetime = #{datetime},
-    </if>
-    <if test="lineLength != null" >
-      AND line_length = #{line_length},
-    </if>
-    AND  limit ${page},${pageSize}
-  </select>
 </mapper>
