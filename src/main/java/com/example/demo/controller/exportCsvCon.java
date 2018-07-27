@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.Util.jsonTranUtil;
+import com.example.demo.util.jsonTranUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class exportCsvCon {
 
         String o = "{'area':{'area':'1','pagetype':'home'},'pagetype':'home'}";
         Map<String, Object> itemMap = jsonTranUtil.JsonToMap(o);
-        System.out.println(itemMap.get("pagetype"));
+        System.out.println(itemMap.get("pagetyupe"));
         return exportcsvservice.name(id);
     }
 }
