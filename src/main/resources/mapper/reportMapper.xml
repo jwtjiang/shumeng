@@ -2,12 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.reportMapper" >
   <resultMap id="BaseResultMap" type="com.example.demo.po.report" >
-    <id column="reportId" property="reportid" jdbcType="BIGINT" />
+    <id column="reportId" property="reportid" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="createTime" property="createtime" jdbcType="DATE" />
     <result column="conformity" property="conformity" jdbcType="VARCHAR" />
     <result column="report_del_status" property="reportDelStatus" jdbcType="INTEGER" />
-    <result column="model" property="model" jdbcType="VARCHAR" />
     <result column="DATE2" property="date2" jdbcType="DATE" />
     <result column="DATE1" property="date1" jdbcType="DATE" />
     <result column="BZ3" property="bz3" jdbcType="VARCHAR" />
@@ -73,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    reportId, title, createTime, conformity, report_del_status, model, DATE2, DATE1, 
-    BZ3, BZ2, BZ1
+    reportId, title, createTime, conformity, report_del_status, DATE2, DATE1, BZ3, BZ2, 
+    BZ1
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.po.reportExample" >
     select
@@ -90,15 +89,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from report
-    where reportId = #{reportid,jdbcType=BIGINT}
+    where reportId = #{reportid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from report
-    where reportId = #{reportid,jdbcType=BIGINT}
+    where reportId = #{reportid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.example.demo.po.reportExample" >
     delete from report
@@ -108,13 +107,13 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.po.report" >
     insert into report (reportId, title, createTime, 
-      conformity, report_del_status, model, 
-      DATE2, DATE1, BZ3, BZ2, 
-      BZ1)
-    values (#{reportid,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, 
-      #{conformity,jdbcType=VARCHAR}, #{reportDelStatus,jdbcType=INTEGER}, #{model,jdbcType=VARCHAR}, 
-      #{date2,jdbcType=DATE}, #{date1,jdbcType=DATE}, #{bz3,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, 
-      #{bz1,jdbcType=VARCHAR})
+      conformity, report_del_status, DATE2, 
+      DATE1, BZ3, BZ2, BZ1
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, 
+      #{conformity,jdbcType=VARCHAR}, #{reportDelStatus,jdbcType=INTEGER}, #{date2,jdbcType=DATE}, 
+      #{date1,jdbcType=DATE}, #{bz3,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.po.report" >
     insert into report
@@ -134,9 +133,6 @@
       <if test="reportDelStatus != null" >
         report_del_status,
       </if>
-      <if test="model != null" >
-        model,
-      </if>
       <if test="date2 != null" >
         DATE2,
       </if>
@@ -155,7 +151,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="reportid != null" >
-        #{reportid,jdbcType=BIGINT},
+        #{reportid,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
@@ -168,9 +164,6 @@
       </if>
       <if test="reportDelStatus != null" >
         #{reportDelStatus,jdbcType=INTEGER},
-      </if>
-      <if test="model != null" >
-        #{model,jdbcType=VARCHAR},
       </if>
       <if test="date2 != null" >
         #{date2,jdbcType=DATE},
@@ -199,7 +192,7 @@
     update report
     <set >
       <if test="record.reportid != null" >
-        reportId = #{record.reportid,jdbcType=BIGINT},
+        reportId = #{record.reportid,jdbcType=VARCHAR},
       </if>
       <if test="record.title != null" >
         title = #{record.title,jdbcType=VARCHAR},
@@ -212,9 +205,6 @@
       </if>
       <if test="record.reportDelStatus != null" >
         report_del_status = #{record.reportDelStatus,jdbcType=INTEGER},
-      </if>
-      <if test="record.model != null" >
-        model = #{record.model,jdbcType=VARCHAR},
       </if>
       <if test="record.date2 != null" >
         DATE2 = #{record.date2,jdbcType=DATE},
@@ -238,12 +228,11 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update report
-    set reportId = #{record.reportid,jdbcType=BIGINT},
+    set reportId = #{record.reportid,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       createTime = #{record.createtime,jdbcType=DATE},
       conformity = #{record.conformity,jdbcType=VARCHAR},
       report_del_status = #{record.reportDelStatus,jdbcType=INTEGER},
-      model = #{record.model,jdbcType=VARCHAR},
       DATE2 = #{record.date2,jdbcType=DATE},
       DATE1 = #{record.date1,jdbcType=DATE},
       BZ3 = #{record.bz3,jdbcType=VARCHAR},
@@ -268,9 +257,6 @@
       <if test="reportDelStatus != null" >
         report_del_status = #{reportDelStatus,jdbcType=INTEGER},
       </if>
-      <if test="model != null" >
-        model = #{model,jdbcType=VARCHAR},
-      </if>
       <if test="date2 != null" >
         DATE2 = #{date2,jdbcType=DATE},
       </if>
@@ -287,7 +273,7 @@
         BZ1 = #{bz1,jdbcType=VARCHAR},
       </if>
     </set>
-    where reportId = #{reportid,jdbcType=BIGINT}
+    where reportId = #{reportid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.demo.po.report" >
     update report
@@ -295,12 +281,11 @@
       createTime = #{createtime,jdbcType=DATE},
       conformity = #{conformity,jdbcType=VARCHAR},
       report_del_status = #{reportDelStatus,jdbcType=INTEGER},
-      model = #{model,jdbcType=VARCHAR},
       DATE2 = #{date2,jdbcType=DATE},
       DATE1 = #{date1,jdbcType=DATE},
       BZ3 = #{bz3,jdbcType=VARCHAR},
       BZ2 = #{bz2,jdbcType=VARCHAR},
       BZ1 = #{bz1,jdbcType=VARCHAR}
-    where reportId = #{reportid,jdbcType=BIGINT}
+    where reportId = #{reportid,jdbcType=VARCHAR}
   </update>
 </mapper>

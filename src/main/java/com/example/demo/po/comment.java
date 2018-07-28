@@ -1,21 +1,21 @@
 package com.example.demo.po;
 
 public class comment {
-    private Long commentid;
+    private String commentid;
 
     private String content;
 
     private String factor;
 
-    private String model;
+    private String reportid;
 
-    private Long reportid;
+    private String modelname;
 
-    public Long getCommentid() {
+    public String getCommentid() {
         return commentid;
     }
 
-    public void setCommentid(Long commentid) {
+    public void setCommentid(String commentid) {
         this.commentid = commentid;
     }
 
@@ -35,19 +35,19 @@ public class comment {
         this.factor = factor;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public Long getReportid() {
+    public String getReportid() {
         return reportid;
     }
 
-    public void setReportid(Long reportid) {
+    public void setReportid(String reportid) {
         this.reportid = reportid;
+    }
+
+    public String getModelname() {
+        return modelname;
+    }
+
+    public void setModelname(String modelname) {
+        this.modelname = modelname;
     }
 }

@@ -10,7 +10,7 @@ public interface lineDetailsMapper {
 
     int deleteByExample(lineDetailsExample example);
 
-    int deleteByPrimaryKey(String lineId);
+    int deleteByPrimaryKey(String id);
 
     int insert(lineDetails record);
 
@@ -18,7 +18,7 @@ public interface lineDetailsMapper {
 
     List<lineDetails> selectByExample(lineDetailsExample example);
 
-    lineDetails selectByPrimaryKey(String lineId);
+    lineDetails selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") lineDetails record, @Param("example") lineDetailsExample example);
 

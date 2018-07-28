@@ -3,7 +3,7 @@ package com.example.demo.po;
 import java.util.Date;
 
 public class report {
-    private Long reportid;
+    private String reportid;
 
     private String title;
 
@@ -12,8 +12,6 @@ public class report {
     private String conformity;
 
     private Integer reportDelStatus;
-
-    private String model;
 
     private Date date2;
 
@@ -25,11 +23,11 @@ public class report {
 
     private String bz1;
 
-    public Long getReportid() {
+    public String getReportid() {
         return reportid;
     }
 
-    public void setReportid(Long reportid) {
+    public void setReportid(String reportid) {
         this.reportid = reportid;
     }
 
@@ -63,14 +61,6 @@ public class report {
 
     public void setReportDelStatus(Integer reportDelStatus) {
         this.reportDelStatus = reportDelStatus;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public Date getDate2() {

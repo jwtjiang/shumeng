@@ -3,9 +3,11 @@ package com.example.demo.po;
 import java.util.Date;
 
 public class lineDetails {
-    private String lineId;
+    private String id;
 
     private String lineName;
+
+    private String lineId;
 
     private String towerName;
 
@@ -15,7 +17,23 @@ public class lineDetails {
 
     private String whdj;
 
-    private String model;
+    private Integer insulationCreepDistance;
+
+    private Integer insulationTon;
+
+    private Integer insulationHigh;
+
+    private Integer insulationBunchNum;
+
+    private Integer resistanceDesignValue;
+
+    private Float stationmap1;
+
+    private Float stationmap2;
+
+    private String voltage;
+
+    private Float lineLength;
 
     private String maintainer;
 
@@ -29,12 +47,12 @@ public class lineDetails {
 
     private Date datetime;
 
-    public String getLineId() {
-        return lineId;
+    public String getId() {
+        return id;
     }
 
-    public void setLineId(String lineId) {
-        this.lineId = lineId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getLineName() {
@@ -43,6 +61,14 @@ public class lineDetails {
 
     public void setLineName(String lineName) {
         this.lineName = lineName;
+    }
+
+    public String getLineId() {
+        return lineId;
+    }
+
+    public void setLineId(String lineId) {
+        this.lineId = lineId;
     }
 
     public String getTowerName() {
@@ -77,12 +103,76 @@ public class lineDetails {
         this.whdj = whdj;
     }
 
-    public String getModel() {
-        return model;
+    public Integer getInsulationCreepDistance() {
+        return insulationCreepDistance;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setInsulationCreepDistance(Integer insulationCreepDistance) {
+        this.insulationCreepDistance = insulationCreepDistance;
+    }
+
+    public Integer getInsulationTon() {
+        return insulationTon;
+    }
+
+    public void setInsulationTon(Integer insulationTon) {
+        this.insulationTon = insulationTon;
+    }
+
+    public Integer getInsulationHigh() {
+        return insulationHigh;
+    }
+
+    public void setInsulationHigh(Integer insulationHigh) {
+        this.insulationHigh = insulationHigh;
+    }
+
+    public Integer getInsulationBunchNum() {
+        return insulationBunchNum;
+    }
+
+    public void setInsulationBunchNum(Integer insulationBunchNum) {
+        this.insulationBunchNum = insulationBunchNum;
+    }
+
+    public Integer getResistanceDesignValue() {
+        return resistanceDesignValue;
+    }
+
+    public void setResistanceDesignValue(Integer resistanceDesignValue) {
+        this.resistanceDesignValue = resistanceDesignValue;
+    }
+
+    public Float getStationmap1() {
+        return stationmap1;
+    }
+
+    public void setStationmap1(Float stationmap1) {
+        this.stationmap1 = stationmap1;
+    }
+
+    public Float getStationmap2() {
+        return stationmap2;
+    }
+
+    public void setStationmap2(Float stationmap2) {
+        this.stationmap2 = stationmap2;
+    }
+
+    public String getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(String voltage) {
+        this.voltage = voltage;
+    }
+
+    public Float getLineLength() {
+        return lineLength;
+    }
+
+    public void setLineLength(Float lineLength) {
+        this.lineLength = lineLength;
     }
 
     public String getMaintainer() {

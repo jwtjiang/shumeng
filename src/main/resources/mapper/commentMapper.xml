@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.commentMapper" >
   <resultMap id="BaseResultMap" type="com.example.demo.po.comment" >
-    <id column="commentid" property="commentid" jdbcType="BIGINT" />
+    <id column="commentid" property="commentid" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="factor" property="factor" jdbcType="VARCHAR" />
-    <result column="model" property="model" jdbcType="VARCHAR" />
-    <result column="reportId" property="reportid" jdbcType="BIGINT" />
+    <result column="reportId" property="reportid" jdbcType="VARCHAR" />
+    <result column="modelName" property="modelname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    commentid, content, factor, model, reportId
+    commentid, content, factor, reportId, modelName
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.po.commentExample" >
     select
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from comment
-    where commentid = #{commentid,jdbcType=BIGINT}
+    where commentid = #{commentid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from comment
-    where commentid = #{commentid,jdbcType=BIGINT}
+    where commentid = #{commentid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.example.demo.po.commentExample" >
     delete from comment
@@ -101,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.po.comment" >
     insert into comment (commentid, content, factor, 
-      model, reportId)
-    values (#{commentid,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{factor,jdbcType=VARCHAR}, 
-      #{model,jdbcType=VARCHAR}, #{reportid,jdbcType=BIGINT})
+      reportId, modelName)
+    values (#{commentid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{factor,jdbcType=VARCHAR}, 
+      #{reportid,jdbcType=VARCHAR}, #{modelname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.po.comment" >
     insert into comment
@@ -117,16 +117,16 @@
       <if test="factor != null" >
         factor,
       </if>
-      <if test="model != null" >
-        model,
-      </if>
       <if test="reportid != null" >
         reportId,
+      </if>
+      <if test="modelname != null" >
+        modelName,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="commentid != null" >
-        #{commentid,jdbcType=BIGINT},
+        #{commentid,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
@@ -134,11 +134,11 @@
       <if test="factor != null" >
         #{factor,jdbcType=VARCHAR},
       </if>
-      <if test="model != null" >
-        #{model,jdbcType=VARCHAR},
-      </if>
       <if test="reportid != null" >
-        #{reportid,jdbcType=BIGINT},
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="modelname != null" >
+        #{modelname,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -152,7 +152,7 @@
     update comment
     <set >
       <if test="record.commentid != null" >
-        commentid = #{record.commentid,jdbcType=BIGINT},
+        commentid = #{record.commentid,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
@@ -160,11 +160,11 @@
       <if test="record.factor != null" >
         factor = #{record.factor,jdbcType=VARCHAR},
       </if>
-      <if test="record.model != null" >
-        model = #{record.model,jdbcType=VARCHAR},
-      </if>
       <if test="record.reportid != null" >
-        reportId = #{record.reportid,jdbcType=BIGINT},
+        reportId = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modelname != null" >
+        modelName = #{record.modelname,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -173,11 +173,11 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update comment
-    set commentid = #{record.commentid,jdbcType=BIGINT},
+    set commentid = #{record.commentid,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       factor = #{record.factor,jdbcType=VARCHAR},
-      model = #{record.model,jdbcType=VARCHAR},
-      reportId = #{record.reportid,jdbcType=BIGINT}
+      reportId = #{record.reportid,jdbcType=VARCHAR},
+      modelName = #{record.modelname,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -191,21 +191,21 @@
       <if test="factor != null" >
         factor = #{factor,jdbcType=VARCHAR},
       </if>
-      <if test="model != null" >
-        model = #{model,jdbcType=VARCHAR},
-      </if>
       <if test="reportid != null" >
-        reportId = #{reportid,jdbcType=BIGINT},
+        reportId = #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="modelname != null" >
+        modelName = #{modelname,jdbcType=VARCHAR},
       </if>
     </set>
-    where commentid = #{commentid,jdbcType=BIGINT}
+    where commentid = #{commentid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.demo.po.comment" >
     update comment
     set content = #{content,jdbcType=VARCHAR},
       factor = #{factor,jdbcType=VARCHAR},
-      model = #{model,jdbcType=VARCHAR},
-      reportId = #{reportid,jdbcType=BIGINT}
-    where commentid = #{commentid,jdbcType=BIGINT}
+      reportId = #{reportid,jdbcType=VARCHAR},
+      modelName = #{modelname,jdbcType=VARCHAR}
+    where commentid = #{commentid,jdbcType=VARCHAR}
   </update>
 </mapper>

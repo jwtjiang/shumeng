@@ -32,7 +32,13 @@
         <table  tableName="comment" domainObjectName="comment">
 
         </table>
-        <table  tableName="line_rep" domainObjectName="lineRep">
+        <table  tableName="line_report" domainObjectName="lineReport">
+
+        </table>
+        <table  tableName="model" domainObjectName="model">
+
+        </table>
+        <table  tableName="line_model" domainObjectName="lineModel">
 
         </table>
     </context>

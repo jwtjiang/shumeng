@@ -114,52 +114,62 @@ public class commentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentidEqualTo(Long value) {
+        public Criteria andCommentidEqualTo(String value) {
             addCriterion("commentid =", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidNotEqualTo(Long value) {
+        public Criteria andCommentidNotEqualTo(String value) {
             addCriterion("commentid <>", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidGreaterThan(Long value) {
+        public Criteria andCommentidGreaterThan(String value) {
             addCriterion("commentid >", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidGreaterThanOrEqualTo(Long value) {
+        public Criteria andCommentidGreaterThanOrEqualTo(String value) {
             addCriterion("commentid >=", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidLessThan(Long value) {
+        public Criteria andCommentidLessThan(String value) {
             addCriterion("commentid <", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidLessThanOrEqualTo(Long value) {
+        public Criteria andCommentidLessThanOrEqualTo(String value) {
             addCriterion("commentid <=", value, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidIn(List<Long> values) {
+        public Criteria andCommentidLike(String value) {
+            addCriterion("commentid like", value, "commentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentidNotLike(String value) {
+            addCriterion("commentid not like", value, "commentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentidIn(List<String> values) {
             addCriterion("commentid in", values, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidNotIn(List<Long> values) {
+        public Criteria andCommentidNotIn(List<String> values) {
             addCriterion("commentid not in", values, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidBetween(Long value1, Long value2) {
+        public Criteria andCommentidBetween(String value1, String value2) {
             addCriterion("commentid between", value1, value2, "commentid");
             return (Criteria) this;
         }
 
-        public Criteria andCommentidNotBetween(Long value1, Long value2) {
+        public Criteria andCommentidNotBetween(String value1, String value2) {
             addCriterion("commentid not between", value1, value2, "commentid");
             return (Criteria) this;
         }
@@ -304,76 +314,6 @@ public class commentExample {
             return (Criteria) this;
         }
 
-        public Criteria andModelIsNull() {
-            addCriterion("model is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelIsNotNull() {
-            addCriterion("model is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelEqualTo(String value) {
-            addCriterion("model =", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelNotEqualTo(String value) {
-            addCriterion("model <>", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelGreaterThan(String value) {
-            addCriterion("model >", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelGreaterThanOrEqualTo(String value) {
-            addCriterion("model >=", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelLessThan(String value) {
-            addCriterion("model <", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelLessThanOrEqualTo(String value) {
-            addCriterion("model <=", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelLike(String value) {
-            addCriterion("model like", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelNotLike(String value) {
-            addCriterion("model not like", value, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelIn(List<String> values) {
-            addCriterion("model in", values, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelNotIn(List<String> values) {
-            addCriterion("model not in", values, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelBetween(String value1, String value2) {
-            addCriterion("model between", value1, value2, "model");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelNotBetween(String value1, String value2) {
-            addCriterion("model not between", value1, value2, "model");
-            return (Criteria) this;
-        }
-
         public Criteria andReportidIsNull() {
             addCriterion("reportId is null");
             return (Criteria) this;
@@ -384,53 +324,133 @@ public class commentExample {
             return (Criteria) this;
         }
 
-        public Criteria andReportidEqualTo(Long value) {
+        public Criteria andReportidEqualTo(String value) {
             addCriterion("reportId =", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidNotEqualTo(Long value) {
+        public Criteria andReportidNotEqualTo(String value) {
             addCriterion("reportId <>", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidGreaterThan(Long value) {
+        public Criteria andReportidGreaterThan(String value) {
             addCriterion("reportId >", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidGreaterThanOrEqualTo(Long value) {
+        public Criteria andReportidGreaterThanOrEqualTo(String value) {
             addCriterion("reportId >=", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidLessThan(Long value) {
+        public Criteria andReportidLessThan(String value) {
             addCriterion("reportId <", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidLessThanOrEqualTo(Long value) {
+        public Criteria andReportidLessThanOrEqualTo(String value) {
             addCriterion("reportId <=", value, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidIn(List<Long> values) {
+        public Criteria andReportidLike(String value) {
+            addCriterion("reportId like", value, "reportid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReportidNotLike(String value) {
+            addCriterion("reportId not like", value, "reportid");
+            return (Criteria) this;
+        }
+
+        public Criteria andReportidIn(List<String> values) {
             addCriterion("reportId in", values, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidNotIn(List<Long> values) {
+        public Criteria andReportidNotIn(List<String> values) {
             addCriterion("reportId not in", values, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidBetween(Long value1, Long value2) {
+        public Criteria andReportidBetween(String value1, String value2) {
             addCriterion("reportId between", value1, value2, "reportid");
             return (Criteria) this;
         }
 
-        public Criteria andReportidNotBetween(Long value1, Long value2) {
+        public Criteria andReportidNotBetween(String value1, String value2) {
             addCriterion("reportId not between", value1, value2, "reportid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameIsNull() {
+            addCriterion("modelName is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameIsNotNull() {
+            addCriterion("modelName is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameEqualTo(String value) {
+            addCriterion("modelName =", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameNotEqualTo(String value) {
+            addCriterion("modelName <>", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameGreaterThan(String value) {
+            addCriterion("modelName >", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameGreaterThanOrEqualTo(String value) {
+            addCriterion("modelName >=", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameLessThan(String value) {
+            addCriterion("modelName <", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameLessThanOrEqualTo(String value) {
+            addCriterion("modelName <=", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameLike(String value) {
+            addCriterion("modelName like", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameNotLike(String value) {
+            addCriterion("modelName not like", value, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameIn(List<String> values) {
+            addCriterion("modelName in", values, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameNotIn(List<String> values) {
+            addCriterion("modelName not in", values, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameBetween(String value1, String value2) {
+            addCriterion("modelName between", value1, value2, "modelname");
+            return (Criteria) this;
+        }
+
+        public Criteria andModelnameNotBetween(String value1, String value2) {
+            addCriterion("modelName not between", value1, value2, "modelname");
             return (Criteria) this;
         }
     }
